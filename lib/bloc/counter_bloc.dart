@@ -1,10 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-sealed class CounterEvent {}
-
-final class CounterIncremented extends CounterEvent {}
-
-final class CounterDecremented extends CounterEvent {}
+part 'counter_event.dart';
 
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc() : super(0) {
