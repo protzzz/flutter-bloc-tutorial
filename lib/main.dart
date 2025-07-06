@@ -13,17 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CounterCubit(),
-      child: BlocProvider(
-        create: (_) => CounterBloc(),
-        child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          ),
-          home: const HomePage(title: 'Flutter Demo Home Page'),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => CounterCubit()),
+        BlocProvider(create: (_) => CounterBloc()),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
+        home: const HomePage(title: 'Flutter Demo Home Page'),
       ),
     );
   }
